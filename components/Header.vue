@@ -43,7 +43,7 @@ export default {
             socialDropdown: false,
 
             // Copy
-            embedCode: 'testr',
+            embedCode: '<iframe src="https://finder.melodymelon.com/" style="border:0px none; border-radius: 20px;" name="myiFrame" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="540px" width="800px" allowfullscreen></iframe>',
             embedCopied: false,
             linkCopied: false
         }
