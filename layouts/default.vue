@@ -1,7 +1,6 @@
 <template>
   <div class="siteCon">
     <Nuxt/>
-    <div class="backgroundImg"><div class="bgInner"></div></div>
   </div>
 </template>
 
@@ -26,6 +25,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
   height: 100%;
+  background-color: #161616;
 }
 #__nuxt {height: 100%}
 #__layout {height: 100%}
@@ -51,6 +51,10 @@ select:focus {outline: none;}
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
+}
+
+.simplebar-scrollbar:before {
+  background: #FFF;
 }
 
 /* Background Image */

@@ -7,6 +7,7 @@
         <SiteFooter/>
     </Simplebar>
 
+    <div class="backgroundImg"><div class="bgInner"></div></div>
   </div>
 </template>
 
@@ -20,6 +21,42 @@ import SiteFooter from '@/components/Footer'
 import Questions from '@/components/Questions'
 
 export default {
+    head: {
+    title: 'Spotify playlist questionnaire | Melody Melon',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Discover amazing Spotify playlists though Melody Melons quick and easy questionnaire. Find your perfect Spotify playlist to fuel your day.'
+      },
+      {
+        hid: "og:url",
+        property: 'og:url',
+        content: 'https://finder.melodymelon.com'
+      },
+      {
+        hid: "og:type",
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        hid: "og:title",
+        property: 'og:title',
+        content: 'Spotify playlist questionnaire | Melody Melon'
+      },
+      {
+        hid: "og:description",
+        property: 'og:description',
+        content: 'Discover amazing Spotify playlists though Melody Melons quick and easy questionnaire. Find your perfect Spotify playlist to fuel your day.'
+      }
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://finder.melodymelon.com'
+      }
+    ]
+  },
   data() {
     return {
 

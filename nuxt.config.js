@@ -1,49 +1,59 @@
 export default {
-  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
-
-  // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-
-  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'playlist-finder-v2',
+    htmlAttrs: {
+      lang: 'en'
+    },
     meta: [
-      { charset: 'utf-8' },
+      { charset: 'UTF-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { name: 'theme_color', content: '#080808' },
+      {
+        hid: "og:image",
+        property: 'og:image',
+        content: 'https://drive.google.com/uc?export=view&id=1xq8KXg3tlNhdb9Lev-Rh8SvoGMRqkCLM'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
-  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     'simplebar/dist/simplebar.min.css',
   ],
-
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '~/plugins/vue-closable.js', ssr: false },
     { src: '~plugins/social.js', ssr: false },
-    {src: '~/plugins/vue-clipboard2.js', ssr: false}
+    { src: '~/plugins/vue-clipboard2.js', ssr: false }
+ 
   ],
-
-  // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
-
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+  components: false,
   buildModules: [
   ],
-
-  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-  ],
 
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  ],
+  pwa: { 
+    workbox: true,
+    icon: {
+      fileName: 'icon.png'
+    },
+    meta: { 
+      theme_color: '#080808', 
+      author: 'William Yallop',
+      lang: 'en', 
+      nativeUI: true
+    }, 
+    manifest: { 
+      short_name: 'Playlist Finder', 
+      lang: 'en', 
+      display: 'standalone',
+      background_color: '#080808',
+      theme_color: '#080808'
+    } 
+  },
   build: {
   }
 }

@@ -1,6 +1,6 @@
 <template>
     <header class="headCon globWrapper">
-        <img class="siteLogo" src="../assets/images/siteLogo.png" alt="Melody Melon">
+        <a href="/"><img class="siteLogo" src="../assets/images/siteLogo.png" alt="Melody Melon"></a>
         <div class="shareBtnCon">
             <button class="shareBtn" v-on:click="socialDropdown = !socialDropdown" ref="shareBtn"><img class="btnIcon" src="../assets/images/shareIcon.svg" alt="Share"></button>
 
@@ -79,7 +79,7 @@ export default {
     align-self: flex-start;
     justify-content: space-between;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 .siteLogo {
     height: 40px;

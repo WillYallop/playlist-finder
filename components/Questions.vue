@@ -2,7 +2,7 @@
   <div class="questionsComp globWrapper">
 
     <!-- Questions -->
-    <div class="questionWrapper" v-if="!showResults">
+    <div class="questionWrapper">
       <!-- Question 1 -->
       <div class="questionsCon" v-if="question === 1">
         <h1>When do you listen to your music most?</h1>
@@ -58,26 +58,6 @@
       </div>
     </div>
 
-    <!-- Results -->
-    <div class="resultsWrapper" v-if="showResults">
-      <div class="playlistContainer">
-          <div class="col1">
-              <div class="imageContainer">
-                  <img class="playlistImage" loading="lazy" :src="getImageUrl(playlistReslt.icon)" alt="Playlist Artwork">
-                  <div class="backgrounImageOverlay"></div>
-                  <img loading="lazy" :src="getImageUrl(playlistReslt.icon)" alt="playlist artwork" class="backgrounImage">
-              </div>
-              <a :href="'https://open.spotify.com/playlist/' + playlistReslt.playlistSpotifyUrl" class="followPlaylistBtn">follow</a> 
-          </div>
-          <div class="col2">
-              <iframe :src="'https://open.spotify.com/embed/playlist/' + playlistReslt.playlistSpotifyUrl" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-              <div class="col2BtnArea">
-                  <a :href="'https://open.spotify.com/playlist/' + playlistReslt.playlistSpotifyUrl" class="followPlaylistBtn">follow</a>  
-              </div>
-          </div>
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -90,10 +70,6 @@ import 'vue-slider-component/theme/default.css'
 export default {
   data() {
     return {
-      // Results
-      showResults: false,
-      playlistReslt: {},
-
       // question index
       question: 1,
       // playlist Data
@@ -506,13 +482,9 @@ export default {
 
       // If the result has multiple with same weight, get a random one from selection
       var randomIndex = Math.floor(Math.random() * playlistResults.length);
-      this.playlistReslt = playlistResults[randomIndex]
+      playlistResults[randomIndex]
+      this.$router.push('/' + playlistResults[randomIndex].playlistUrl)
 
-    },
-    //Gets the dynamic image url for each playlist
-    getImageUrl(name) {
-        var images = require.context('../assets/images/playlistIcons/', false)
-        return images('./' + name)
     },
 
   }
@@ -597,121 +569,6 @@ export default {
   background-color: #36927B;
 }
 
-/* Results */
-.resultsWrapper {
-  display: flex;
-  width: 100%;
-}
-.playlistContainer {
-  width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-}
-.col1 {
-  width: 257px;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
-  padding: 20px;
-  position: relative;
-}
-.imageContainer {
-  width: 217px;
-  height: 217px;
-  position: relative;
-  margin-top: 0px;
-}
-.playlistImage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 217px;
-  height: 217px;
-  border-radius: 20px;
-  z-index: 20;
-}
-.backgrounImageOverlay {
-  background-color: rgba(255, 255, 255, 0.2);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 15;
-}
-.backgrounImage {
-  filter: blur(10px);
-  transform: scale(1.1); 
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 5;
-}
-.followPlaylistBtn {
-  text-align: center;
-  display: block;
-  width: 100%;
-  text-decoration: none;
-  background-color: #3DA389;
-  padding: 10px 40px;
-  border-radius: 20px;
-  border: none;
-  font-size: 16px;
-  color: #FFF;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.followPlaylistBtn:hover {
-  background-color: #36927B;
-}
-.col2 {
-  width: calc(100% - 257px);
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.25);
-  padding: 20px;
-  position: relative;
-}
-.col2 iframe {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  z-index: 10;
-  position: relative;
-}
-.col2BtnArea {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
-  padding: 0 20px 20px;
-}
-
-@media only screen and (max-width: 900px) {
-  .col1 {width: 200px;}
-  .col2 {width: calc(100% - 200px);}
-  .imageContainer {width: 160px; height: 160px;}
-  .playlistImage {width: 160px; height: 160px;}
-}
-@media only screen and (max-width: 650px) {
-  .playlistContainer {flex-wrap: wrap; position: relative;}
-  .col1 {width: 100%; height: auto; padding: 10px;}
-  .col2 {width: 100%; height: auto; padding: 10px; margin-bottom: -5px;}
-  .imageContainer {display: none;}
-  .col2 iframe {height: 300px;}
-
-  .followPlaylistBtn {margin-top: 0;}
-
-}
-@media only screen and (min-width: 500px) {
-  .backgrounImage {display: none;}
-  .backgrounImageOverlay {display: none;}
-}
 </style>
 
 <style>
