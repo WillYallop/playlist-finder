@@ -5,10 +5,36 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
+    title: 'Spotify playlist questionnaire | Melody Melon',
     meta: [
       { charset: 'UTF-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'theme_color', content: '#080808' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Discover amazing Spotify playlists though Melody Melons quick and easy questionnaire. Find your perfect Spotify playlist to fuel your day.'
+      },
+      {
+        hid: "og:url",
+        property: 'og:url',
+        content: 'https://finder.melodymelon.com'
+      },
+      {
+        hid: "og:type",
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        hid: "og:title",
+        property: 'og:title',
+        content: 'Spotify playlist questionnaire | Melody Melon'
+      },
+      {
+        hid: "og:description",
+        property: 'og:description',
+        content: 'Discover amazing Spotify playlists though Melody Melons quick and easy questionnaire. Find your perfect Spotify playlist to fuel your day.'
+      },
       {
         hid: "og:image",
         property: 'og:image',

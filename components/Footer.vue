@@ -1,6 +1,6 @@
 <template>
     <footer class="footerCon">
-        <p>Powererd By <a href="https://melodymelon.com">Melody Melon</a></p>
+        <p>Powererd By <a target="_blank" href="https://melodymelon.com">Melody Melon</a></p>
     </footer>
 </template>
 
