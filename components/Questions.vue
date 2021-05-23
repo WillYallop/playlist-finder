@@ -1,4 +1,4 @@
-<template>
+<template class="questionCompCon">
   <div class="questionsComp globWrapper">
 
     <!-- Questions -->
@@ -492,6 +492,9 @@ export default {
 </script>
 
 <style>
+.questionCompCon {
+  width: 100%;
+}
 .questionsComp {
   width: 100%;
   margin: 0 auto 20px;
