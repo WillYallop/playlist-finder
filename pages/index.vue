@@ -97,6 +97,7 @@ export default {
 .simplebarCon .simplebar-content {
   min-height: 100%;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 </style>
