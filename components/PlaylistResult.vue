@@ -1,23 +1,25 @@
 <template>
-    <div class="resultComp globWrapper">
-        
-        <div class="playlistInfoCon">
-            <h1 class="playlistTitle">{{playlistData.playlistName}}</h1>
-            <p class="playlistDescP">{{playlistData.playlistDescription}}</p>
-        </div>
-
-        <div class="iframeCon">
-            <div class="homeBtnCon">
-                <div class="homeBtn"></div> 
+    <div class="resultCompCon">
+        <div class="resultComp globWrapper">
+            
+            <div class="playlistInfoCon">
+                <h1 class="playlistTitle">{{playlistData.playlistName}}</h1>
+                <p class="playlistDescP">{{playlistData.playlistDescription}}</p>
             </div>
-            <div class="grillCon">
-                <div class="grill"></div>
+
+            <div class="iframeCon">
+                <div class="homeBtnCon">
+                    <div class="homeBtn"></div> 
+                </div>
+                <div class="grillCon">
+                    <div class="grill"></div>
+                </div>
+                <iframe :src="'https://open.spotify.com/embed/playlist/' + playlistData.playlistSpotifyUrl" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div>
-            <iframe :src="'https://open.spotify.com/embed/playlist/' + playlistData.playlistSpotifyUrl" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+            <a :href="'https://open.spotify.com/playlist/' + playlistData.playlistSpotifyUrl" class="followPlaylistBtn">Follow Playlist</a> 
+
         </div>
-
-        <a :href="'https://open.spotify.com/playlist/' + playlistData.playlistSpotifyUrl" class="followPlaylistBtn">Follow Playlist</a> 
-
     </div>
 </template>
 
@@ -35,6 +37,9 @@ export default {
 </script>
 
 <style scoped>
+.resultCompCon {
+  width: 100%;
+}
 .resultComp {
     width: 100%;
     margin: 0 auto 20px;
