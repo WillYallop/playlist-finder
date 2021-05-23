@@ -1,64 +1,66 @@
-<template class="questionCompCon">
-  <div class="questionsComp globWrapper">
+<template>
+  <div class="questionCompCon">
+    <div class="questionsComp globWrapper">
 
-    <!-- Questions -->
-    <div class="questionWrapper">
-      <!-- Question 1 -->
-      <div class="questionsCon" v-if="question === 1">
-        <h1>When do you listen to your music most?</h1>
-        <p class="questionP">Make sure to select the option that best matches the question for the most accurate results.</p>
-        <p class="questionNumP">{{question}} of 4</p>
-        <div class="optionCon">
-          <button class="questionOptionBtn topRowBtns" v-on:click="question1Data = 'gym'" :class="{ 'activeQuestion' : question1Data === 'gym' }">At the gym</button>
-          <button class="questionOptionBtn topRowBtns" v-on:click="question1Data = 'studying'" :class="{ 'activeQuestion' : question1Data === 'studying' }">While studying</button>
-          <button class="questionOptionBtn" v-on:click="question1Data = 'working'" :class="{ 'activeQuestion' : question1Data === 'working' }">While working</button>
-          <button class="questionOptionBtn" v-on:click="question1Data = 'relaxing'" :class="{ 'activeQuestion' : question1Data === 'relaxing' }">In freetime</button>
+      <!-- Questions -->
+      <div class="questionWrapper">
+        <!-- Question 1 -->
+        <div class="questionsCon" v-if="question === 1">
+          <h1>When do you listen to your music most?</h1>
+          <p class="questionP">Make sure to select the option that best matches the question for the most accurate results.</p>
+          <p class="questionNumP">{{question}} of 4</p>
+          <div class="optionCon">
+            <button class="questionOptionBtn topRowBtns" v-on:click="question1Data = 'gym'" :class="{ 'activeQuestion' : question1Data === 'gym' }">At the gym</button>
+            <button class="questionOptionBtn topRowBtns" v-on:click="question1Data = 'studying'" :class="{ 'activeQuestion' : question1Data === 'studying' }">While studying</button>
+            <button class="questionOptionBtn" v-on:click="question1Data = 'working'" :class="{ 'activeQuestion' : question1Data === 'working' }">While working</button>
+            <button class="questionOptionBtn" v-on:click="question1Data = 'relaxing'" :class="{ 'activeQuestion' : question1Data === 'relaxing' }">In freetime</button>
+          </div>
         </div>
-      </div>
 
-      <!-- Question 2 -->
-      <div class="questionsCon" v-if="question === 2">
-        <h1>What is your favourite time of year?</h1>
-        <p class="questionP">Make sure to select the option that best matches the question for the most accurate results.</p>
-        <p class="questionNumP">{{question}} of 4</p>
-        <div class="optionCon">
-          <button class="questionOptionBtn" v-on:click="question2Data = 'summer'" :class="{ 'activeQuestion' : question2Data === 'summer' }">Summer</button>
-          <button class="questionOptionBtn" v-on:click="question2Data = 'winter'" :class="{ 'activeQuestion' : question2Data === 'winter' }">Winter</button>
+        <!-- Question 2 -->
+        <div class="questionsCon" v-if="question === 2">
+          <h1>What is your favourite time of year?</h1>
+          <p class="questionP">Make sure to select the option that best matches the question for the most accurate results.</p>
+          <p class="questionNumP">{{question}} of 4</p>
+          <div class="optionCon">
+            <button class="questionOptionBtn" v-on:click="question2Data = 'summer'" :class="{ 'activeQuestion' : question2Data === 'summer' }">Summer</button>
+            <button class="questionOptionBtn" v-on:click="question2Data = 'winter'" :class="{ 'activeQuestion' : question2Data === 'winter' }">Winter</button>
+          </div>
         </div>
-      </div>
 
-      <!-- Question 3 -->
-      <div class="questionsCon" v-if="question === 3">
-        <h1>What option best describes you at a party?</h1>
-        <p class="questionP">Make sure to select the option that best matches the question for the most accurate results.</p>
-        <p class="questionNumP">{{question}} of 4</p>
-        <div class="optionCon">
-          <button class="questionOptionBtn topRowBtns" v-on:click="question3Data = 'dance'" :class="{ 'activeQuestion' : question3Data === 'dance' }">The Dancer</button>
-          <button class="questionOptionBtn topRowBtns" v-on:click="question3Data = 'hype'" :class="{ 'activeQuestion' : question3Data === 'hype' }">The Hype Man</button>
-          <button class="questionOptionBtn" v-on:click="question3Data = 'chill'" :class="{ 'activeQuestion' : question3Data === 'chill' }">The Chill Dude</button>
-          <button class="questionOptionBtn" v-on:click="question3Data = 'outsider'" :class="{ 'activeQuestion' : question3Data === 'outsider' }">The Outsider</button>
+        <!-- Question 3 -->
+        <div class="questionsCon" v-if="question === 3">
+          <h1>What option best describes you at a party?</h1>
+          <p class="questionP">Make sure to select the option that best matches the question for the most accurate results.</p>
+          <p class="questionNumP">{{question}} of 4</p>
+          <div class="optionCon">
+            <button class="questionOptionBtn topRowBtns" v-on:click="question3Data = 'dance'" :class="{ 'activeQuestion' : question3Data === 'dance' }">The Dancer</button>
+            <button class="questionOptionBtn topRowBtns" v-on:click="question3Data = 'hype'" :class="{ 'activeQuestion' : question3Data === 'hype' }">The Hype Man</button>
+            <button class="questionOptionBtn" v-on:click="question3Data = 'chill'" :class="{ 'activeQuestion' : question3Data === 'chill' }">The Chill Dude</button>
+            <button class="questionOptionBtn" v-on:click="question3Data = 'outsider'" :class="{ 'activeQuestion' : question3Data === 'outsider' }">The Outsider</button>
+          </div>
         </div>
-      </div>
 
-      <!-- Question 4 -->
-      <div class="questionsCon" v-if="question === 4">
-        <h1>Slide to represent your mood!</h1>
-        <p class="questionP">Make sure to select the option that best matches the question for the most accurate results.</p>
-        <p class="questionNumP">{{question}} of 4</p>
-        <VueSlider class="sliderCon" ref="slider" v-model="moodScale" v-bind="options" :hide-label="true"/>
-        <div class="moodScaleCon">
-          <p>Sad</p>
-          <p>Joyful</p>
+        <!-- Question 4 -->
+        <div class="questionsCon" v-if="question === 4">
+          <h1>Slide to represent your mood!</h1>
+          <p class="questionP">Make sure to select the option that best matches the question for the most accurate results.</p>
+          <p class="questionNumP">{{question}} of 4</p>
+          <VueSlider class="sliderCon" ref="slider" v-model="moodScale" v-bind="options" :hide-label="true"/>
+          <div class="moodScaleCon">
+            <p>Sad</p>
+            <p>Joyful</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Question Nav -->
-      <div class="questNav">
-        <button class="nextQuestionBtn" v-on:click="incrementQuestion"><span v-if="question != 4">Next Question</span><span v-if="question === 4">Results</span></button>
+        <!-- Question Nav -->
+        <div class="questNav">
+          <button class="nextQuestionBtn" v-on:click="incrementQuestion"><span v-if="question != 4">Next Question</span><span v-if="question === 4">Results</span></button>
+        </div>
       </div>
     </div>
-
   </div>
+
 </template>
 
 <script>
